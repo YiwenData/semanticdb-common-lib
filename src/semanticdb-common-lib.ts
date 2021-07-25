@@ -17,18 +17,18 @@ const each = async (arr: any, func: Function) => {
 /**
  *
  * @param arr Array or item
- * @param direction number
  * @param keys multiple sorting keys
  */
-const sort = (arr: any[], direction: number, keys: string[]) => {
+const sort = (arr: any[], keys: { [key: string]: number }) => {
   return arr.sort((itemA, itemB) => {
-    for (const key of keys) {
+    for (const key of Object.keys(keys)) {
       const a = itemA[key]
       const b = itemB[key]
       if (a === b) {
         continue
       }
 
+      const direction = keys[key]
       if (typeof a === 'number') {
         return direction === 1 ? a - b : b - a
       }

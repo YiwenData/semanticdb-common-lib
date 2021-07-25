@@ -53,14 +53,21 @@ describe('test', () => {
       }
     ]
 
-    expect(_.sort(arr, 1, ['name', 'number'])).toEqual([
+    expect(_.sort(arr, { name: 1, number: -1 })).toEqual([
+      { name: 'abc', number: 2 },
+      { name: 'abc', number: 1 },
+      { name: 'bac', number: 10 },
+      { name: 'bac', number: 2 }
+    ])
+
+    expect(_.sort(arr, { name: 1, number: 1 })).toEqual([
       { name: 'abc', number: 1 },
       { name: 'abc', number: 2 },
       { name: 'bac', number: 2 },
       { name: 'bac', number: 10 }
     ])
 
-    expect(_.sort(arr, -1, ['name', 'number'])).toEqual([
+    expect(_.sort(arr, { name: -1, number: -1 })).toEqual([
       { name: 'bac', number: 10 },
       { name: 'bac', number: 2 },
       { name: 'abc', number: 2 },
