@@ -38,12 +38,12 @@ const sort = (arr: any[], keys: { [key: string]: number }) => {
   })
 }
 
-export const merge = (arrays: any[][]): any[] => {
+export const mergeBy = (_id: string, arrays: any[][]): any[] => {
   const merged: any = {}
 
   arrays.forEach(array => {
     array.forEach(i => {
-      const id = i._id
+      const id = i[_id]
       if (id in merged) {
         merged[id] = { ...merged[id], ...i }
       } else {
@@ -58,5 +58,5 @@ export const merge = (arrays: any[][]): any[] => {
 export default {
   each,
   sort,
-  merge
+  mergeBy
 }

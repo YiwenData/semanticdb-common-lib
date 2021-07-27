@@ -102,7 +102,7 @@ describe('test', () => {
       }
     ]
 
-    expect(_.merge([arr1, arr2])).toEqual([
+    expect(_.mergeBy('_id', [arr1, arr2])).toEqual([
       { _id: '1', v1: 1, v2: 2 },
       { _id: '2', v1: 1, v2: 2 },
       { _id: '3', v2: 2 }
