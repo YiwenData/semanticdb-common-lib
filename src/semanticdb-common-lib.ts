@@ -38,7 +38,25 @@ const sort = (arr: any[], keys: { [key: string]: number }) => {
   })
 }
 
+export const merge = (arrays: any[][]): any[] => {
+  const merged: any = {}
+
+  arrays.forEach(array => {
+    array.forEach(i => {
+      const id = i._id
+      if (id in merged) {
+        merged[id] = { ...merged[id], ...i }
+      } else {
+        merged[id] = i
+      }
+    })
+  })
+
+  return Object.values(merged)
+}
+
 export default {
   each,
-  sort
+  sort,
+  merge
 }

@@ -74,4 +74,38 @@ describe('test', () => {
       { name: 'abc', number: 1 }
     ])
   })
+
+  it('merge', async () => {
+    const arr1 = [
+      {
+        _id: '1',
+        v1: 1
+      },
+      {
+        _id: '2',
+        v1: 1
+      }
+    ]
+
+    const arr2 = [
+      {
+        _id: '1',
+        v2: 2
+      },
+      {
+        _id: '2',
+        v2: 2
+      },
+      {
+        _id: '3',
+        v2: 2
+      }
+    ]
+
+    expect(_.merge([arr1, arr2])).toEqual([
+      { _id: '1', v1: 1, v2: 2 },
+      { _id: '2', v1: 1, v2: 2 },
+      { _id: '3', v2: 2 }
+    ])
+  })
 })
