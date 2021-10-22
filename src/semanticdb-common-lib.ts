@@ -33,7 +33,17 @@ const sort = (arr: any[], keys: { [key: string]: number }) => {
         return direction === 1 ? a - b : b - a
       }
 
-      return direction === 1 ? a.localeCompare(b) : b.localeCompare(a)
+      if (a == null) {
+        return 1
+      }
+      if (b == null) {
+        return -1
+      }
+
+      try {
+        return direction === 1 ? a.localeCompare(b) : b.localeCompare(a)
+      } catch (error) {}
+      return 1
     }
   })
 }
