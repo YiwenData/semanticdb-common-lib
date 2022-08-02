@@ -49,20 +49,20 @@ const sort = (arr: any[], keys: { [key: string]: number }) => {
 }
 
 export const mergeBy = (_id: string, arrays: any[][]): any[] => {
-  const merged: any = {}
+  const merged: any[] = []
 
   arrays.forEach(array => {
     array.forEach(i => {
-      const id = i[_id]
-      if (id in merged) {
-        merged[id] = { ...merged[id], ...i }
+      const hit = merged.findIndex(m => m[_id] === i[_id])
+      if (hit >= 0) {
+        merged[hit] = { ...merged[hit], ...i }
       } else {
-        merged[id] = i
+        merged.push(i)
       }
     })
   })
 
-  return Object.values(merged)
+  return merged
 }
 
 export default {
