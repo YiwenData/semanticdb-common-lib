@@ -51,9 +51,6 @@ const sort = (arr: any[], keys: { [key: string]: number }) => {
 export const mergeBy = (_id: string, arrays: any[][]): any[] => {
   const merged: any[] = []
 
-  if (arrays.length > 1000) throw new Error('数据量过大，暂不支持显示')
-  if (arrays.every(array => array.length > 10000)) throw new Error('数据量过大，暂不支持显示')
-
   arrays.forEach(array => {
     array.forEach(i => {
       const hit = merged.findIndex(m => m[_id] === i[_id])
