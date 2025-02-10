@@ -3,7 +3,7 @@
  * @param arr Array or item
  * @param func function on each item
  */
-const each = async (arr: any, func: Function) => {
+export const each = async (arr: any, func: Function) => {
   if (arr === null || arr === undefined) return null
 
   if (Array.isArray(arr)) {
@@ -19,7 +19,7 @@ const each = async (arr: any, func: Function) => {
  * @param arr Array or item
  * @param keys multiple sorting keys
  */
-const sort = (arr: any[], keys: { [key: string]: number }) => {
+export const sort = (arr: any[], keys: { [key: string]: number }) => {
   return arr.sort((itemA, itemB) => {
     for (const key of Object.keys(keys)) {
       const a = itemA[key]

@@ -1,6 +1,6 @@
 {
   "name": "semanticdb-common-lib",
-  "version": "1.0.12",
+  "version": "1.0.13",
   "description": "",
   "keywords": [],
   "main": "dist/semanticdb-common-lib.umd.js",
