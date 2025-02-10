@@ -42,7 +42,9 @@ const sort = (arr: any[], keys: { [key: string]: number }) => {
 
       try {
         return direction === 1 ? a.localeCompare(b) : b.localeCompare(a)
-      } catch (error) {}
+      } catch (error) {
+        console.error(error)
+      }
       return 1
     }
   })
